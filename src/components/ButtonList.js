@@ -1,7 +1,7 @@
 import React from "react";
 import Button from "./Button";
 const list = [
-  "all",
+  "All",
   "Live",
   "Gaming",
   "Cricket",
@@ -13,14 +13,10 @@ const list = [
   "Music",
   "Sports",
   "Travel",
-  "Events",
-  "Gaming",
-  "Comedy",
-  "People ",
 ];
 const ButtonList = () => {
   return (
-    <div className="flex overflow-x-auto">
+    <div className="flex overflow-hidden">
       <div className="flex">
         {list.map((name, index) => (
           <Button key={index} name={name} />
@@ -29,13 +25,17 @@ const ButtonList = () => {
     </div>
   );
 };
+// "Events",
+// "Gaming",
+// "Comedy",
+// "People ",
 // "Blogs",
-//   "Entertainment",
-//   "News",
-//   "Politics",
-//   "Education",
-//   "Science ",
-//   "Technology",
-//   "Nonprofits",
-//   "Activism",
+// "Entertainment",
+// "News",
+// "Politics",
+// "Education",
+// "Science ",
+// "Technology",
+// "Nonprofits",
+// "Activism",
 export default ButtonList;

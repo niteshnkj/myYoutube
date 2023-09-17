@@ -1,12 +1,15 @@
 import React from "react";
 
-const videoCard = ({ info }) => {
-  // console.log("ye info hai", info);
+const VideoCard = ({ info }) => {
   const { snippet, statistics } = info;
   const { channelTitle, title, thumbnails } = snippet;
   return (
     <div className="p-2 m-2 w-72 shadow-lg">
-      <img className="rounded-lg" src={thumbnails?.medium?.url} alt="thumbnail" />
+      <img
+        className="rounded-lg"
+        src={thumbnails?.medium?.url}
+        alt="thumbnail"
+      />
       <ul>
         <li className="font-bold py-2">{title}</li>
         <li>{channelTitle}</li>
@@ -16,4 +19,13 @@ const videoCard = ({ info }) => {
   );
 };
 
-export default videoCard;
+//Higher Order Function
+export const AdVideoCard = ({ info }) => {
+  return (
+    <div className="p-1 m-1 border border-red-700 ">
+      <VideoCard info={info} />
+    </div>
+  );
+};
+
+export default VideoCard;

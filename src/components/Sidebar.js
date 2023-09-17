@@ -12,9 +12,13 @@ const Sidebar = () => {
         <Link to="/">
           <li>Home</li>
         </Link>
-        <li>Sports</li>
-        <li>gaming</li>
-        <li>movies</li>
+        <li>Shorts</li>
+        <li>Subscriptions</li>
+        <li>Library</li>
+        <li>History</li>
+        <li>Your Videos</li>
+        <li>Watch later</li>
+        <li>Liked Videos</li>
       </ul>
       <h1 className="font-bold">Subscriptions</h1>
       <ul>
@@ -23,7 +27,7 @@ const Sidebar = () => {
         <li>gaming</li>
         <li>movies</li>
       </ul>
-      <h1 className="font-bold pt-5">watch later</h1>
+      <h1 className="font-bold pt-5">Watch later</h1>
       <ul>
         <li>Music</li>
         <li>Sports</li>
