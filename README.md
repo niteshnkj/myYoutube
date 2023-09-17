@@ -35,3 +35,8 @@
    }
 
    new Map(); searching inside object
+
+
+  - comments upto n level deep like reddit (logics :recursion,ui konwledge and datastructure knowledge)
+
+  - ctrl + shift + l to select similar words
