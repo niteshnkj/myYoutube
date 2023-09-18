@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { toggleMenu } from "../utils/appSlice";
 import { cacheResults } from "../utils/searchSlice";
+import { YOUTUBE_VIDEOS_API } from "../utils/constants";
 const Head = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [suggestions, setSuggestions] = useState([]);
@@ -56,18 +57,19 @@ const Head = () => {
 
   const getSearchSuggestions = async () => {
     const data = await fetch(
-      "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=20&q=" +
+      "https://www.googleapis.com/youtube/v3/search?part=snippet&maxResults=50&q=" +
         { searchQuery } +
-        "&type=video&key=AIzaSyBcXbfQ2BoWA2bZx8cljtKLKdcS6aKWS9I"
+        "&type=video&key=" +
+        { YOUTUBE_VIDEOS_API }
     );
 
     const json = await data.json();
-    // console.log(json.items[0]);
-    setSuggestions(json.item[0]);
+    console.log(json.items);
+    setSuggestions(json.items);
     //update cache
     dispatch(
       cacheResults({
-        [searchQuery]: json[1],
+        [searchQuery]: json.items,
       })
     );
   };
@@ -110,7 +112,9 @@ const Head = () => {
           <div className="fixed bg-white py-2 px-2 w-[37rem] shadow-lg rounded-lg border-gray-100">
             <ul>
               {suggestions.map((s) => (
-                <li className="px-2 py-2 shadow-sm hover:bg-gray-200 ">{s}</li>
+                <li className="px-2 py-2 shadow-sm hover:bg-gray-200 ">
+                  {s.snippet.title}
+                </li>
               ))}
             </ul>
           </div>
